@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Test</title>
+</head>
+<body>
+    <form method="post" action="{% url 'bio_test' %}">
+        {% csrf_token %}
+        <label for="input">Enter 'Molecule' or 'Test': </label>
+        <input type="text" name="input" id="input">
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if response %}
+        <h2>Response:</h2>
+        <pre>{{ response|safe }}</pre>
+    {% endif %}
+</body>
+</html>
